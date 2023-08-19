@@ -22,11 +22,11 @@ public class Account {
     }
 
     public void depositCheckingBalance(BigDecimal amount) {
-        if (isGreaterThanZero(amount)) {
+        if (isLessThanZero(amount)) {
             throw new InvalidOperationException("Cannot deposit a negative amount to checking balance");
+        } else {
+            this.checkingBalance = this.checkingBalance.add(amount);
         }
-
-        this.checkingBalance = this.checkingBalance.add(amount);
     }
 
     public void depositSavingsBalance(BigDecimal amount){
